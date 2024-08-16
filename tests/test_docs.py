@@ -6,13 +6,15 @@ import httpx
 import markdown
 from bs4 import BeautifulSoup
 
-from . import (
+from __init__ import (
     DOC_NAMES,
-    DOCS_DIR,
+    EXAMPLES_DIR,
+    EXAMPLE_FILES,
+    SCHEMAS_DIR,
+    SCHEMA_FILES,
     SCHEMA_NAMES,
-    all_properties,
-    property_doc_name,
     schema_enum_registry,
+    fire_stats,
 )
 
 
