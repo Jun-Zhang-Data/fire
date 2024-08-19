@@ -8,6 +8,8 @@ from jsonschema import Draft4Validator
 from jsonschema.exceptions import ValidationError
 from . import __init__
 
+SCHEMAS_DIR = os.path.join(os.path.dirname(__file__), 'schemas')
+
 class TestSchemas(unittest.TestCase):
     def test_schemas_and_docs_found(self):
         assert SCHEMA_NAMES
