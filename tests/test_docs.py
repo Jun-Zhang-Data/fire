@@ -15,6 +15,7 @@ from __init__ import (
     SCHEMA_NAMES,
     schema_enum_registry,
     fire_stats,
+    DOCS_DIR,
 )
 
 

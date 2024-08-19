@@ -1,9 +1,12 @@
 [tool.ruff]
 
 line-length = 88
+exclude = ['*venv*']
+
+[tool.ruff.lint]
 select = ['E', 'W', 'F', 'B']
 # pycodestyle: E, W
 # pyflakes: F
 # flake8-bugbear: B
 ignore = ['E501']  # E501 ignore long lines
-exclude = ['*venv*']
+

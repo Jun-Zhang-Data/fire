@@ -107,7 +107,6 @@ def write_batches_to_files(batches):
     for b in batches:
         # Generate the filename
         filename = "[" + str(b["date"]) + "] " + str(b["name"]) + ".json"
-        
         # Replace spaces with underscores
         filename = filename.replace(" ", "_")
         
@@ -258,3 +257,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     write_batches_to_files(generate_random_fires(fire_schemas, args.count))
+    
