@@ -5,7 +5,7 @@ import unittest
 import httpx
 import markdown
 from bs4 import BeautifulSoup
-from tests import *
+from . import __init__
 
 
 class TestDocs(unittest.TestCase):
