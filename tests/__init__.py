@@ -2,11 +2,10 @@ import decimal
 import json
 import os
 
-
-HOME = os.path.join(os.path.dirname(__file__), "..")
-SCHEMAS_DIR = os.path.join(HOME, "v1-dev")
-DOCS_DIR = os.path.join(HOME, "documentation", "properties")
-EXAMPLES_DIR = os.path.join(HOME, "examples")
+cwd = os.getcwd()
+SCHEMAS_DIR = os.path.join(cwd, "v1-dev")
+DOCS_DIR = os.path.join(cwd, "documentation", "properties")
+EXAMPLES_DIR = os.path.join(cwd, "examples")
 
 _, _, filenames = next(os.walk(SCHEMAS_DIR), (None, None, []))
 SCHEMA_FILES = [f for f in filenames if f.endswith(".json")]
