@@ -6,7 +6,9 @@ import httpx
 import markdown
 from bs4 import BeautifulSoup
 
-from . import __init__
+
+
+from directories import *
 
 
 class TestDocs(unittest.TestCase):

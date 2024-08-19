@@ -6,7 +6,7 @@ import pytest
 from collections import OrderedDict
 from jsonschema import Draft4Validator
 from jsonschema.exceptions import ValidationError
-from . import __init__
+from directories import *
 
 
 
