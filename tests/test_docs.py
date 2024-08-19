@@ -5,7 +5,7 @@ import unittest
 import httpx
 import markdown
 from bs4 import BeautifulSoup
-from test import __init__
+from tests import __init__
 from __init__ import (
     DOC_NAMES,
     SCHEMA_NAMES,
