@@ -5,13 +5,7 @@ import unittest
 import httpx
 import markdown
 from bs4 import BeautifulSoup
-from tests import __init__
-from __init__ import (
-    DOC_NAMES,
-    SCHEMA_NAMES,
-    schema_enum_registry,
-    DOCS_DIR,
-)
+from tests import *
 
 
 class TestDocs(unittest.TestCase):
