@@ -109,7 +109,6 @@ def write_batches_to_files(batches):
         filename = "[" + str(b["date"]) + "] " + str(b["name"]) + ".json"
         # Replace spaces with underscores
         filename = filename.replace(" ", "_")
-        
         # Remove or replace any invalid characters
         filename = re.sub(r'[\/:*?"<>|]', '_', filename)
 
@@ -125,7 +124,6 @@ def include_embedded_schema_properties(schema):
             inherited_schema_name = schema["allOf"][i]["$ref"].split("/")[-1]
             with open("v1-dev/" + inherited_schema_name, "r") as f:
                 inherited_schema = json.load(f)
-            
             # Merge properties
             schema["properties"].update(inherited_schema.get("properties", {}))
 
