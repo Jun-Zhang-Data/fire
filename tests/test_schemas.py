@@ -9,7 +9,7 @@ from jsonschema.exceptions import ValidationError
 from . import __init__
 
 project_root = os.path.abspath(os.path.dirname(__file__))
-schemas_dir = os.path.join(project_root, 'v1_dev')
+SCHEMAS_DIR = os.path.join(project_root, 'v1_dev')
 
 class TestSchemas(unittest.TestCase):
     def test_schemas_and_docs_found(self):
