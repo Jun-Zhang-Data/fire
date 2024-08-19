@@ -6,9 +6,14 @@ import httpx
 import markdown
 from bs4 import BeautifulSoup
 
-
-
-from directories import *
+from . import (
+    DOC_NAMES,
+    DOCS_DIR,
+    SCHEMA_NAMES,
+    all_properties,
+    property_doc_name,
+    schema_enum_registry,
+)
 
 
 class TestDocs(unittest.TestCase):

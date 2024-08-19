@@ -6,7 +6,6 @@ import random
 import timeit
 from datetime import datetime
 from faker import Faker
-import re
 
 
 fire_schemas = [
@@ -105,27 +104,21 @@ def generate_random_fires(fire_schemas, n=100):
 
 def write_batches_to_files(batches):
     for b in batches:
-        # Generate the filename
         filename = "[" + str(b["date"]) + "] " + str(b["name"]) + ".json"
-        # Replace spaces with underscores
-        filename = filename.replace(" ", "_")
-        # Remove or replace any invalid characters
-        filename = re.sub(r'[\/:*?"<>|]', '_', filename)
-
-        # Write the batch to the file
-        with open(filename, "w+") as f:
-            f.write(json.dumps(b, indent=2))
-
+        f = open(filename.replace(" ", "_"), "w+")
+        f.write(json.dumps(b, indent=2))
+        f.close()
 
 
 def include_embedded_schema_properties(schema):
     try:
         for i in range(len(schema["allOf"])):
-            inherited_schema_name = schema["allOf"][i]["$ref"].split("/")[-1]
-            with open("v1-dev/" + inherited_schema_name, "r") as f:
-                inherited_schema = json.load(f)
-            # Merge properties
-            schema["properties"].update(inherited_schema.get("properties", {}))
+            inherited_schema = schema["allOf"][i]["$ref"].split("/")[-1]
+            f = open("v1-dev/" + inherited_schema, "r")
+            inherited_schema = json.load(f)
+            schema["properties"] = dict(
+                schema["properties"].items() + inherited_schema["properties"].items()
+            )
 
     except KeyError:
         pass
@@ -255,4 +248,3 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     write_batches_to_files(generate_random_fires(fire_schemas, args.count))
-    
